@@ -81,7 +81,7 @@ set viminfo+=n~/.vim/.viminfo
 
 " start/end of line
 nnoremap 0 ^
-noremap  $ g_
+nnoremap  $ g_
 
 " toggle mode
 inoremap jk    <esc>
