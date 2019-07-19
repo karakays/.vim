@@ -74,10 +74,10 @@ set viminfo+=n~/.vim/.viminfo
 
 """ Mappings
 
-noremap <Left>  <nop>
-noremap <Right> <nop>
-noremap <Up>    <nop>
-noremap <Down>  <nop>
+"nnoremap <Left>  <nop>
+"nnoremap <Right> <nop>
+"nnoremap <Up>    <nop>
+"nnoremap <Down>  <nop>
 
 " start/end of line
 nnoremap 0 ^
