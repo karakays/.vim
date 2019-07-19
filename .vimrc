@@ -81,7 +81,7 @@ set viminfo+=n~/.vim/.viminfo
 
 " start/end of line
 nnoremap 0 ^
-nnoremap  $ g_
+nnoremap $ g_
 
 " toggle mode
 inoremap jk    <esc>
@@ -104,6 +104,10 @@ nnoremap Q :q!<cr>
 
 " Blank lines on enter
 nnoremap <cr> o<esc>
+
+" swap direction word occr
+nnoremap * #
+nnoremap # *
 
 " copy to clipboard
 vnoremap <C-c> :w !pbcopy<CR><CR>
