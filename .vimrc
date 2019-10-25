@@ -7,7 +7,7 @@ set number relativenumber
 " enable access to system clipboard
 if s:uname == "Darwin"
     set clipboard=unnamed
-else
+elseif s:uname == "Linux"
     set clipboard=unnamedplus
 endif
 
@@ -44,11 +44,13 @@ set background=dark
 if s:uname == "Darwin"
     colorscheme solarized
     highlight Visual ctermfg=173 ctermbg=None guifg=#d7875f
-else
+elseif s:uname == "Linux"
     colorscheme desert
     autocmd FileType python colorscheme desert
     autocmd FileType java colorscheme zellner
     hi Search ctermbg=LightCyan
+elseif s:uname =~ "CYGWIN*"
+    colorscheme elflord
 endif
 
 """ Searching
@@ -74,10 +76,10 @@ set viminfo+=n~/.vim/.viminfo
 
 """ Mappings
 
-"nnoremap <Left>  <nop>
-"nnoremap <Right> <nop>
-"nnoremap <Up>    <nop>
-"nnoremap <Down>  <nop>
+nnoremap <Left>  <nop>
+nnoremap <Right> <nop>
+nnoremap <Up>    <nop>
+nnoremap <Down>  <nop>
 
 " start/end of line
 nnoremap 0 ^
