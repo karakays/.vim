@@ -26,3 +26,7 @@
 	path = bundle/syntastic
 	url = https://github.com/vim-syntastic/syntastic
 	branch = master
+[submodule "bundle/vim-unimpair"]
+	path = bundle/vim-unimpair
+	url = https://github.com/tpope/vim-unimpaired.git
+	branch = master
