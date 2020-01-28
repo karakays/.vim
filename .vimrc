@@ -122,6 +122,9 @@ nnoremap <leader><CR> :noh<CR><CR>
 
 nnoremap D d$
 
+" expand active file directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 """ Leader
 let mapleader="\\"
 
