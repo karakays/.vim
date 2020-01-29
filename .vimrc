@@ -31,6 +31,8 @@ set pastetoggle=<F10>
 set laststatus=2
 " visual auto-complete menu
 set wildmenu
+" scrollable auto-complete Ex
+set wildmode=full
 " swap directory
 set directory=~/.vim/swap//
 " backup directory
