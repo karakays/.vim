@@ -1,16 +1,13 @@
 let s:uname = system("echo -n $(uname -s)")
 
-""" UI settings
-
-" turn on relative line numbers
-set number relativenumber
-" enable access to system clipboard
 if s:uname == "Darwin"
     set clipboard=unnamed
 elseif s:uname == "Linux"
     set clipboard=unnamedplus
 endif
 
+" turn on relative line numbers
+set number relativenumber
 set encoding=utf-8
 " break lines after 120 columns
 set textwidth=120
@@ -37,6 +34,7 @@ set wildmode=full
 set directory=~/.vim/swap//
 " backup directory
 set backupdir=~/.vim/backup//
+set history=200
 
 " Colorscheme
 
