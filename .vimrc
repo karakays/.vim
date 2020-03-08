@@ -1,13 +1,16 @@
 let s:uname = system("echo -n $(uname -s)")
 
-if s:uname == "Darwin"
-    set clipboard=unnamed
-elseif s:uname == "Linux"
-    set clipboard=unnamedplus
-endif
+""" UI settings
 
 " turn on relative line numbers
 set number relativenumber
+" enable access to system clipboard
+if s:uname == "Darwin"
+    set clipboard=unnamed
+else
+    set clipboard=unnamedplus
+endif
+
 set encoding=utf-8
 " break lines after 120 columns
 set textwidth=120
@@ -28,13 +31,10 @@ set pastetoggle=<F10>
 set laststatus=2
 " visual auto-complete menu
 set wildmenu
-" scrollable auto-complete Ex
-set wildmode=full
 " swap directory
 set directory=~/.vim/swap//
 " backup directory
 set backupdir=~/.vim/backup//
-set history=200
 
 " Colorscheme
 
@@ -44,13 +44,11 @@ set background=dark
 if s:uname == "Darwin"
     colorscheme solarized
     highlight Visual ctermfg=173 ctermbg=None guifg=#d7875f
-elseif s:uname == "Linux"
+else
     colorscheme desert
     autocmd FileType python colorscheme desert
     autocmd FileType java colorscheme zellner
     hi Search ctermbg=LightCyan
-elseif s:uname =~ "CYGWIN*"
-    colorscheme elflord
 endif
 
 """ Searching
@@ -76,10 +74,10 @@ set viminfo+=n~/.vim/.viminfo
 
 """ Mappings
 
-nnoremap <Left>  <nop>
-nnoremap <Right> <nop>
-nnoremap <Up>    <nop>
-nnoremap <Down>  <nop>
+"nnoremap <Left>  <nop>
+"nnoremap <Right> <nop>
+"nnoremap <Up>    <nop>
+"nnoremap <Down>  <nop>
 
 " start/end of line
 nnoremap 0 ^
@@ -121,9 +119,6 @@ inoremap <C-v> :r !pbpaste<CR><CR>
 nnoremap <leader><CR> :noh<CR><CR>
 
 nnoremap D d$
-
-" expand active file directory
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 """ Leader
 let mapleader="\\"
@@ -172,6 +167,7 @@ iabbrev @@ skarakayali@gmail.com
 iabbrev nname Selçuk Karakayalı
 
 autocmd InsertLeave * :echo 'Left insert mode'
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 " ctags
 set tags=./tags;/
