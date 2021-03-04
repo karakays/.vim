@@ -41,15 +41,10 @@ set backupdir=~/.vim/backup//
 syntax enable
 let g:solarized_termtrans=1
 set background=dark
-if s:uname == "Darwin"
-    colorscheme solarized
-    highlight Visual ctermfg=173 ctermbg=None guifg=#d7875f
-else
-    colorscheme desert
-    autocmd FileType python colorscheme desert
-    autocmd FileType java colorscheme zellner
-    hi Search ctermbg=LightCyan
-endif
+colorscheme desert
+autocmd FileType python colorscheme desert
+autocmd FileType java colorscheme zellner
+hi Search ctermbg=LightCyan
 
 """ Searching
 
