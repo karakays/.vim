@@ -115,6 +115,9 @@ nnoremap <leader><CR> :noh<CR><CR>
 
 nnoremap D d$
 
+" list marks
+nnoremap ` :<C-u>marks<CR>:normal! `
+
 """ Leader
 let mapleader="\\"
 
