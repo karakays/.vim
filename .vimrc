@@ -35,6 +35,7 @@ set wildmenu
 set directory=~/.vim/swap//
 " backup directory
 set backupdir=~/.vim/backup//
+set history=200
 
 " Colorscheme
 
@@ -69,10 +70,14 @@ set viminfo+=n~/.vim/.viminfo
 
 """ Mappings
 
-"nnoremap <Left>  <nop>
-"nnoremap <Right> <nop>
-"nnoremap <Up>    <nop>
-"nnoremap <Down>  <nop>
+nnoremap <Left>  <nop>
+nnoremap <Right> <nop>
+nnoremap <Up>    <nop>
+nnoremap <Down>  <nop>
+
+" scroll down/up
+nnoremap <c-j> <c-e>
+nnoremap <c-k> <c-y>
 
 " start/end of line
 nnoremap 0 ^
@@ -83,22 +88,22 @@ inoremap jk    <esc>
 inoremap <esc> <nop>
 
 " windows navigation
-nnoremap <C-J> <C-W>J
-nnoremap <C-K> <C-w>K
-nnoremap <C-L> <C-W>L
-nnoremap <C-H> <C-W>H
+" nnoremap <C-J> <C-W>J
+" nnoremap <C-K> <C-w>K
+" nnoremap <C-L> <C-W>L
+" nnoremap <C-H> <C-W>H
 
 " Save
-nnoremap s :w<cr>
+nnoremap s :w<CR>
 
 " Quit
-nnoremap q :q<cr>
+nnoremap q :q<CR>
 
 " Soft quit
-nnoremap Q :q!<cr>
+nnoremap Q :q!<CR>
 
 " Blank lines on enter
-nnoremap <cr> o<esc>
+nnoremap <CR> o<esc>
 
 " swap direction word occr
 nnoremap * #
@@ -113,6 +118,8 @@ inoremap <C-v> :r !pbpaste<CR><CR>
 " clear hlsearch
 nnoremap <leader><CR> :noh<CR><CR>
 
+nnoremap <C-i><CR> :noh<CR><CR>
+
 nnoremap D d$
 
 " list marks
@@ -121,23 +128,25 @@ nnoremap ` :<C-u>marks<CR>:normal! `
 """ Leader
 let mapleader="\\"
 
-nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<CR>:copen<CR>
 
 """ Quick edit .vimrc
-nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>ev :split $MYVIMRC<CR>
 """ Quick source .vimrc
-nnoremap <leader>sv :source $MYVIMRC<cr><Bar>:AirlineRefresh<cr>
+nnoremap <leader>sv :source $MYVIMRC<CR><Bar>:AirlineRefresh<CR>
 
 """ Syntax check
-nnoremap <leader>C :SyntasticCheck<cr>
+nnoremap <leader>C :SyntasticCheck<CR>
 
+""" %% expands active directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%h').'/' : '%%'
 
 " NERD Tree {{{
-noremap  <leader>nt :NERDTreeToggle<cr>
-inoremap <leader>nt <esc>:NERDTreeToggle<cr>
-noremap  <leader>nf :NERDTreeFind<cr>
-inoremap <leader>nf <esc>:NERDTreeFind<cr>
-noremap  <leader>nr :NERDTreeFocus<cr>R<c-w><c-p>
+noremap  <leader>nt :NERDTreeToggle<CR>
+inoremap <leader>nt <esc>:NERDTreeToggle<CR>
+noremap  <leader>nf :NERDTreeFind<CR>
+inoremap <leader>nf <esc>:NERDTreeFind<CR>
+noremap  <leader>nr :NERDTreeFocus<CR>R<c-w><c-p>
 
 let NERDTreeHighlightCursorline = 1
 let NERDTreeIgnore = ['\~$', '.*\.pyc$']
@@ -154,9 +163,9 @@ let g:pymode_python = 'python3'
 " }}}
 
 " Fugitive {{{
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gci :Gcommit<cr>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gci :Gcommit<CR>
 
 " }}}
 
@@ -184,7 +193,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*.so,*.swp,*.class
 " search by filename rather than path
 let g:ctrlp_by_filename = 0
-noremap <leader>cr :CtrlPClearCache<cr>
+noremap <leader>CR :CtrlPClearCache<CR>
 " }}}
 
 " Syntastic settings ---------------------- {{{
