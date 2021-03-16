@@ -119,9 +119,7 @@ vnoremap <C-c> :w !pbcopy<CR><CR>
 inoremap <C-v> :r !pbpaste<CR><CR>
 
 " clear hlsearch
-nnoremap <leader><CR> :noh<CR><CR>
-
-nnoremap <C-i><CR> :noh<CR><CR>
+nnoremap <Space> :noh<CR><CR>
 
 nnoremap D d$
 
