@@ -45,7 +45,8 @@ set background=dark
 colorscheme desert
 autocmd FileType python colorscheme desert
 autocmd FileType java colorscheme zellner
-hi Search ctermbg=Yellow ctermfg=Black ctermul=Black
+hi Search ctermbg=Yellow ctermfg=Black ctermul=Red
+hi IncSearch ctermbg=Yellow ctermfg=Red ctermul=Black
 " hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
 " hi TabLine ctermfg=Blue ctermbg=Yellow
 " hi TabLineSel ctermfg=Red ctermbg=Yellow
@@ -191,7 +192,7 @@ endif
 
 " CtrlP settings ---------------------- {{{
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-set wildignore+=*.so,*.swp,*.class
+set wildignore+=*.so,*.swp,*.class,*/public/*,*/target/*,*/build/*,*/.idea/*,*/.git/*.*/*.egg-info/*,*/.ropeproject/*
 " search by filename rather than path
 let g:ctrlp_by_filename = 0
 " disable working directory auto-discovery
