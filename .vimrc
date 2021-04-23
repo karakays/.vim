@@ -36,6 +36,11 @@ set directory=~/.vim/swap//
 " backup directory
 set backupdir=~/.vim/backup//
 set history=200
+" new vwin on right
+set splitright
+" new swin on below
+set splitbelow
+"set wildchar=<Tab> wildmenu wildmode=full
 
 " Colorscheme
 
