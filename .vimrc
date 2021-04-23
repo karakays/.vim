@@ -48,8 +48,6 @@ syntax enable
 let g:solarized_termtrans=1
 set background=dark
 colorscheme desert
-autocmd FileType python colorscheme desert
-autocmd FileType java colorscheme zellner
 hi Search ctermbg=Yellow ctermfg=Black ctermul=Black
 " hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
 " hi TabLine ctermfg=Blue ctermbg=Yellow
@@ -180,7 +178,6 @@ iabbrev @@ skarakayali@gmail.com
 iabbrev nname Selçuk Karakayalı
 
 autocmd InsertLeave * :echo 'Left insert mode'
-autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 " ctags
 set tags=./tags;/
