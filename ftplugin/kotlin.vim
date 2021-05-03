@@ -1,1 +1,1 @@
-colorscheme zellner
+colorscheme desert
