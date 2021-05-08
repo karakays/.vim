@@ -2,7 +2,7 @@ let s:uname = system("echo -n $(uname -s)")
 
 """ UI settings
 
-" turn on relative line numbers
+&quot; turn on relative line numbers
 set number relativenumber
 
 " enable access to system clipboard
