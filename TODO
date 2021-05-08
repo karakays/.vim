@@ -1,6 +1,8 @@
 
-## Kotling syntax highlighting
+## vimgrep or grep and traverse in results from quickfix
 
-## yaml indentation 2 spaces
+# Show git revision history to file
+# :Glog -- %
+# navigate in commits without leaving vim
 
-## ignore certain directories & files in directory
+## migrate to vim 8's package manager
