@@ -96,6 +96,8 @@ set smartcase
 " enable incremental searching
 set incsearch
 
+let &grepprg="grep -Iin $* /dev/null"
+
 " detect file type and indent
 filetype plugin indent on
 
