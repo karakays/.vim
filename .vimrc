@@ -45,14 +45,25 @@ set splitbelow
 " Colorscheme
 
 syntax enable
-let g:solarized_termtrans=1
 set background=dark
-colorscheme desert
-hi Search ctermbg=Yellow ctermfg=Black ctermul=Red
-hi IncSearch ctermbg=Yellow ctermfg=Red ctermul=Black
 " hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
 " hi TabLine ctermfg=Blue ctermbg=Yellow
 " hi TabLineSel ctermfg=Red ctermbg=Yellow
+"
+" Apply default highlights with autocmd
+" whenever colorscheme is sourced
+augroup DefaultColors
+    autocmd!
+    autocmd ColorScheme * highlight Search cterm=NONE ctermbg=Yellow ctermfg=Black ctermul=Red
+                      \ | highlight IncSearch cterm=NONE ctermbg=Yellow ctermfg=Red ctermul=Black
+                      \ | highlight Visual cterm=NONE ctermbg=159 ctermfg=16 gui=NONE guibg=#5fd700 guifg=#000000
+augroup END
+
+let g:solarized_termtrans=1
+colorscheme desert
+
+" Maintain default colors with ++nested flag
+autocmd FileType java ++nested colorscheme zellner
 
 """ Searching
 
@@ -107,7 +118,7 @@ nnoremap s :w<CR>
 nnoremap q :q<CR>
 
 " Soft quit
-nnoremap Q :q!<CR>
+" nnoremap Q :q!<CR>
 
 " Blank lines on enter
 nnoremap <CR> o<esc>
