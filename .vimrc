@@ -2,8 +2,9 @@ let s:uname = system("echo -n $(uname -s)")
 
 """ UI settings
 
-" turn on relative line numbers
+&quot; turn on relative line numbers
 set number relativenumber
+
 " enable access to system clipboard
 if s:uname == "Darwin"
     set clipboard=unnamed
@@ -12,67 +13,105 @@ else
 endif
 
 set encoding=utf-8
+
 " break lines after 120 columns
 set textwidth=120
+
 " use 4 spaces to represent tab
 set tabstop=4
+
 set softtabstop=4
+
 " number  of spaces to use for auto indent
 set shiftwidth=4
+
 " copy indent from current line when starting a new line
 set autoindent
+
 " use smart indent if there's no indent file
 set smartindent
+
 " enter spaces when tab is pressed
 set expandtab
+
 " toggle paste mode
 set pastetoggle=<F10>                                   
+
 " always show status bar
 set laststatus=2
+
 " visual auto-complete menu
 set wildmenu
+
 " swap directory
 set directory=~/.vim/swap//
+
 " backup directory
 set backupdir=~/.vim/backup//
+
 set history=200
+
 " new vwin on right
 set splitright
+
 " new swin on below
 set splitbelow
+
 "set wildchar=<Tab> wildmenu wildmode=full
 
-" Colorscheme
+""" Colorscheme
 
 syntax enable
-let g:solarized_termtrans=1
 set background=dark
-colorscheme desert
-hi Search ctermbg=Yellow ctermfg=Black ctermul=Red
-hi IncSearch ctermbg=Yellow ctermfg=Red ctermul=Black
 " hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
 " hi TabLine ctermfg=Blue ctermbg=Yellow
 " hi TabLineSel ctermfg=Red ctermbg=Yellow
+"
+" Apply default highlights with autocmd whenever colorscheme is sourced
+augroup DefaultColors
+    autocmd!
+    autocmd ColorScheme * highlight Search cterm=NONE ctermbg=Yellow ctermfg=Black ctermul=Red
+                      \ | highlight IncSearch cterm=NONE ctermbg=Yellow ctermfg=Red ctermul=Black
+                      \ | highlight Visual cterm=NONE ctermbg=159 ctermfg=16
+augroup END
+
+let g:solarized_termtrans=1
+
+colorscheme desert
+
+" Maintain default colors with ++nested flag
+autocmd FileType java ++nested colorscheme zellner
 
 """ Searching
 
 " highlight searching
 set hlsearch
+
 " case insensitive searching
 set ignorecase
+
 " unless uppercase letters are used in the regex.
 set smartcase
+
 " enable incremental searching
 set incsearch
+
+let &grepprg="grep -Iin $* /dev/null"
+
 " detect file type and indent
 filetype plugin indent on
+
 " show title in console bar
 set title
+
 " indicate cursor line
 set cursorline
+
 set ruler
 " lines of context around cursor position
+
 set scrolloff=3
+
 set viminfo+=n~/.vim/.viminfo
 
 """ Mappings
@@ -107,7 +146,7 @@ nnoremap s :w<CR>
 nnoremap q :q<CR>
 
 " Soft quit
-nnoremap Q :q!<CR>
+" nnoremap Q :q!<CR>
 
 " Blank lines on enter
 nnoremap <CR> o<esc>
