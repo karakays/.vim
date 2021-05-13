@@ -2,7 +2,7 @@ let s:uname = system("echo -n $(uname -s)")
 
 """ UI settings
 
-&quot; turn on relative line numbers
+" turn on relative line numbers
 set number relativenumber
 
 " enable access to system clipboard
@@ -96,7 +96,10 @@ set smartcase
 " enable incremental searching
 set incsearch
 
-let &grepprg="grep -Iin $* /dev/null"
+" let &grepprg="grep -Iin $* /dev/null"
+
+let &grepprg = 'rg --vimgrep'
+let &grepformat = '%f:%l:%c:%m'
 
 " detect file type and indent
 filetype plugin indent on
@@ -151,9 +154,16 @@ nnoremap q :q<CR>
 " Blank lines on enter
 nnoremap <CR> o<esc>
 
+" However, in the quickfix window, <CR> is used to jump to the error under the
+" cursor, so undefine the mapping there.
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
 " swap direction word occr
 nnoremap * #
 nnoremap # *
+
+" open all folds
+nnoremap zO zR
 
 " copy to clipboard
 vnoremap <C-c> :w !pbcopy<CR><CR>
@@ -174,10 +184,10 @@ let mapleader="\\"
 
 nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<CR>:copen<CR>
 
-""" Quick edit .vimrc
-nnoremap <leader>ev :split $MYVIMRC<CR>
-""" Quick source .vimrc
-nnoremap <leader>sv :source $MYVIMRC<CR><Bar>:AirlineRefresh<CR>
+" edit .vimrc
+nnoremap <leader>ve :split $MYVIMRC<CR>
+" source .vimrc and clear caches
+nnoremap <leader>vs :source $MYVIMRC<CR> <Bar>:AirlineRefresh<CR> <Bar>:CtrlPClearAllCaches<CR> <Bar>:NERDTreeFocus<cr>gg:NERDTreeRefreshRoot<CR><c-w><c-p>
 
 """ Syntax check
 nnoremap <leader>C :SyntasticCheck<CR>
@@ -185,12 +195,11 @@ nnoremap <leader>C :SyntasticCheck<CR>
 """ %% expands active directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%h').'/' : '%%'
 
-" NERD Tree {{{
+" \ERD Tree {{{
 noremap  <leader>nt :NERDTreeToggle<CR>
 inoremap <leader>nt <esc>:NERDTreeToggle<CR>
 noremap  <leader>nf :NERDTreeFind<CR>
 inoremap <leader>nf <esc>:NERDTreeFind<CR>
-noremap  <leader>nr :NERDTreeFocus<CR>R<c-w><c-p>
 
 let NERDTreeHighlightCursorline = 1
 let NERDTreeIgnore = ['\~$', '.*\.pyc$']
@@ -207,8 +216,7 @@ let g:pymode_python = 'python3'
 " }}}
 
 " Fugitive {{{
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>g :Git<CR>
 nnoremap <leader>gci :Gcommit<CR>
 
 " }}}
