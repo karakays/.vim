@@ -165,11 +165,13 @@ nnoremap # *
 " open all folds
 nnoremap zO zR
 
-" tab navigation
+" tab mappings
 nnoremap th  :tabfirst<CR>
 nnoremap tk  :tabnext<CR>
 nnoremap tj  :tabprev<CR>
 nnoremap tl  :tablast<CR>
+nnoremap tn  :tabedit<CR>
+nnoremap tq  :tabclose<CR>
 
 " copy to clipboard
 vnoremap <C-c> :w !pbcopy<CR><CR>
