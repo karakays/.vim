@@ -1,5 +1,20 @@
 
 ## vimgrep or grep and traverse in results from quickfix
+#
+* 09 MAY
+Benchmarking complete.
+
+performance
+ripgrep > ag > ack > grep
+
+git grep left out only limited to git repos.
+
+winner: ripgrep (to replace grep)
+
+Next:
+ripgrep integration with vim
+https://github.com/BurntSushi/ripgrep/issues/999
+locations vs quickfix list
 
 # Show git revision history to file
 # :Glog -- %
