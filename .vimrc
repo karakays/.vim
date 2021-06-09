@@ -166,10 +166,10 @@ nnoremap # *
 nnoremap zO zR
 
 " tab mappings
-nnoremap t0  :tabfirst<CR>
 nnoremap tk  :tabnext<CR>
 nnoremap tj  :tabprev<CR>
-nnoremap t$  :tablast<CR>
+nnoremap t0  :tabfirst<CR>
+nnoremap t9  :tablast<CR>
 nnoremap tn  :tabedit<CR>
 nnoremap tq  :tabclose<CR>
 
@@ -190,7 +190,7 @@ nnoremap ` :<C-u>marks<CR>:normal! `
 """ Leader
 let mapleader="\\"
 
-nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<CR>:copen<CR>
+nnoremap <leader>gr :silent execute "grep! " . shellescape(expand("<cWORD>")) . " ."<CR>:copen<CR>
 
 " edit .vimrc
 nnoremap <leader>ve :split $MYVIMRC<CR>
@@ -203,7 +203,7 @@ nnoremap <leader>C :SyntasticCheck<CR>
 """ %% expands active directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%h').'/' : '%%'
 
-" \ERD Tree {{{
+" NERD Tree {{{
 noremap  <leader>nt :NERDTreeToggle<CR>
 inoremap <leader>nt <esc>:NERDTreeToggle<CR>
 noremap  <leader>nf :NERDTreeFind<CR>
