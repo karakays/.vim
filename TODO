@@ -6,3 +6,5 @@
 # navigate in commits without leaving vim
 
 ## migrate to vim 8's package manager
+#
+## linters for JSON

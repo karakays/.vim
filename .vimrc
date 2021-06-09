@@ -166,10 +166,10 @@ nnoremap # *
 nnoremap zO zR
 
 " tab mappings
-nnoremap th  :tabfirst<CR>
+nnoremap t0  :tabfirst<CR>
 nnoremap tk  :tabnext<CR>
 nnoremap tj  :tabprev<CR>
-nnoremap tl  :tablast<CR>
+nnoremap t$  :tablast<CR>
 nnoremap tn  :tabedit<CR>
 nnoremap tq  :tabclose<CR>
 
