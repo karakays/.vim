@@ -242,8 +242,8 @@ set tags=./tags;/
 
 " set cursor based on mode
 if exists('$TMUX')
-  let &t_SI = "\ePtmux;\e\e[5 q\e\\"
-  let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+  let &t_SI = "\ePtmux;\e\e[3 q\e\\"
+  let &t_EI = "\ePtmux;\e\e[0 q\e\\"
 else
   let &t_SI = "\e[5 q"
   let &t_EI = "\e[2 q"
