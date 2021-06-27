@@ -1,0 +1,20 @@
+source ~/.vim/.vimrc
+
+let mapleader = "\"
+
+# To find action in IntelliJ
+# https://stackoverflow.com/questions/34633434/how-to-map-keys-for-ideavims-normal-mode-to-editors-action
+nmap g] :action GotoImplementation<CR>
+nmap gs :action GotoSuperMethod<CR>
+
+nmap tk :action NextTab<CR>
+nmap tj :action PreviousTab<CR>
+nmap t0 :action GoToTab1<CR>
+nmap t9 :action GoToLastTab<CR>
+
+nmap <leader>nf :action SelectInProjectView<CR>
+
+# Override vim jump list commands
+# Rely solely on IDE navigation history since it's a superset of vim's jump list
+nmap <C-o> :action Back<CR>
+nmap <C-i> :action Forward<CR>

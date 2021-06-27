@@ -216,6 +216,9 @@ let NERDTreeDirArrows = 1
 let NERDTreeShowHidden = 1
 let NERDTreeWinSize = 21
 
+" Start NERDTree and leave the cursor in it.
+" autocmd VimEnter * NERDTree
+
 " }}}
 
 " Python-Mode {{{
