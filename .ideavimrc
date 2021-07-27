@@ -13,6 +13,7 @@ nmap t0 :action GoToTab1<CR>
 nmap t9 :action GoToLastTab<CR>
 
 nmap <leader>nf :action SelectInProjectView<CR>
+nmap <leader>nt :action HideActiveWindow<CR>
 
 # Override vim jump list commands
 # Rely solely on IDE navigation history since it's a superset of vim's jump list
