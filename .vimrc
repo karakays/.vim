@@ -22,7 +22,7 @@ set tabstop=4
 
 set softtabstop=4
 
-" number  of spaces to use for auto indent
+" number of spaces to use for auto-indent
 set shiftwidth=4
 
 " copy indent from current line when starting a new line
@@ -111,11 +111,13 @@ set title
 set cursorline
 
 set ruler
-" lines of context around cursor position
 
+" lines of context around cursor position
 set scrolloff=3
 
 set viminfo+=n~/.vim/.viminfo
+
+set updatetime=750
 
 """ Mappings
 
@@ -222,8 +224,8 @@ let NERDTreeWinSize = 21
 " }}}
 
 " Python-Mode {{{
-let g:pymode_python = 'python3'
-
+let g:pymode_rope = 0
+let g:pymode = 0
 " }}}
 
 " Fugitive {{{
@@ -241,29 +243,38 @@ autocmd InsertLeave * :echo 'Left insert mode'
 set tags=./tags;/
 
 " set cursor based on mode
-if exists('$TMUX')
-  let &t_SI = "\ePtmux;\e\e[3 q\e\\"
-  let &t_EI = "\ePtmux;\e\e[0 q\e\\"
-else
-  let &t_SI = "\e[5 q"
-  let &t_EI = "\e[2 q"
-endif
+"if exists('$TMUX')
+"  let &t_SI = "\ePtmux;\e\e[3 q\e\\"
+"  let &t_EI = "\ePtmux;\e\e[0 q\e\\"
+"else
+"  let &t_SI = "\e[5 q"
+"  let &t_EI = "\e[2 q"
+"endif
+
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[2 q"
                  
 " CtrlP settings ---------------------- {{{
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*.so,*.swp,*.class,*/public/*,*/target/*,*/build/*,*/.idea/*,*/.git/*.*/*.egg-info/*,*/.ropeproject/*
 " search by filename rather than path
-let g:ctrlp_by_filename = 0
+let g:ctrlp_by_filename = 1
 " disable working directory auto-discovery
 let g:ctrlp_working_path_mode = 0
+" unlimited number of files to scan
+let g:ctrlp_max_files = 0
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+let g:ctrlp_use_caching = 0
 " }}}
 
 " Syntastic settings ---------------------- {{{
 let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
+let g:syntastic_auto_loc_list=2
+let g:syntastic_check_on_open=0
 let g:syntastic_check_on_wq=0
-let g:syntastic_mode_map={ 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+"let g:syntastic_mode_map={ 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+let g:syntastic_yaml_checkers = ['yamllint']
+let g:syntastic_kotlin_checkers = ['ktlint']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
