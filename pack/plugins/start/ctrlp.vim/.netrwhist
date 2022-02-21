@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/selcuk.karakayali/Desktop'
+let g:netrw_dirhist_6='/Users/selcuk.karakayali/workspace/udemy/website-django/services/makefiles'
+let g:netrw_dirhist_5='/Users/selcuk.karakayali/workspace/udemy/website-django/services'
+let g:netrw_dirhist_4='/Users/selcuk.karakayali/workspace/udemy/website-django'
+let g:netrw_dirhist_3='/Users/selcuk.karakayali/workspace/udemy/website-django/services'
+let g:netrw_dirhist_2='/Users/selcuk.karakayali/workspace/udemy/website-django'
+let g:netrw_dirhist_1='/Users/selcuk.karakayali/workspace/udemy/website-django/services/communication/comms-gateway'
