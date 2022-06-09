@@ -31,7 +31,7 @@ set autoindent
 " use smart indent if there's no indent file
 set smartindent
 
-" enter spaces when tab is pressed
+" enter "spaces" "when" tab is pressed
 set expandtab
 
 " toggle paste mode
@@ -192,7 +192,7 @@ nnoremap ` :<C-u>marks<CR>:normal! `
 """ Leader
 let mapleader="\\"
 
-nnoremap <leader>gr :silent execute "grep! " . shellescape(expand("<cWORD>")) . " ."<CR>:copen<CR>
+nnoremap <leader>gr :silent execute "grep! " . shellescape(expand("<cword>")) . " ."<CR>:copen<CR>
 
 " edit .vimrc
 nnoremap <leader>ve :split $MYVIMRC<CR>
@@ -279,6 +279,12 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 " }}}
+"
+" Airline settings ---------------------- {{{
+let g:airline#extensions#tabline#enabled = 1"
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme='base16_gruvbox_dark_hard'
+" }}}
 
 " Vimscript file settings ---------------------- {{{
 augroup filetype_vim
@@ -286,11 +292,3 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
-
-" To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = []
-
-" disable grep-op 
-call add(g:pathogen_disabled, 'grep-op')
-" Pathogen
-execute pathogen#infect()
