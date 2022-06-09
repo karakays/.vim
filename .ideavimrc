@@ -1,5 +1,8 @@
 source ~/.vim/.vimrc
 
+# yank to clipboard
+set clipboard+=unnamed
+
 let mapleader = "\"
 
 # To find action in IntelliJ
@@ -20,3 +23,5 @@ nmap <leader>nt :action HideActiveWindow<CR>
 # of vim's jump list
 nmap <C-o> :action Back<CR>
 nmap <C-i> :action Forward<CR>
+
+#cmap e :action SynchronizeCurrentFile<CR>

@@ -1,25 +1,9 @@
+* Show git revision history to file
+```
+:Glog -- %
+navigate in commits without leaving vim
+```
 
-## vimgrep or grep and traverse in results from quickfix
-#
-* 09 MAY
-Benchmarking complete.
+* migrate to vim 8's package manager
 
-performance
-ripgrep > ag > ack > grep
-
-git grep left out only limited to git repos.
-
-winner: ripgrep (to replace grep)
-
-Next:
-ripgrep integration with vim
-https://github.com/BurntSushi/ripgrep/issues/999
-locations vs quickfix list
-
-# Show git revision history to file
-# :Glog -- %
-# navigate in commits without leaving vim
-
-## migrate to vim 8's package manager
-#
-## linters for JSON
+* syntastic linters/checkers for kotlin, yaml, java etc.
